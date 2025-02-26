@@ -8,13 +8,41 @@ export const HERO_CONTENT = `Meticulous web developer with a strong passion for 
 
 export const ABOUT_TEXT = `A dynamic Power Platform developer and UI/UX designer, I specialize in building responsive web and mobile applications using Microsoft PowerApps, Power Automate, and Power BI. With expertise in Canvas and Model-Driven Apps, I craft intuitive interfaces, automate workflows, and integrate AI-driven functionalities. Proficient in JavaScript, C#, and Figma, I create seamless user experiences while optimizing business processes. Whether developing e-commerce platforms, customizing SharePoint integrations, or leading projects, I drive efficiency, innovation, and digital transformation, ensuring high-quality solutions tailored to business needs.`;
 
+export const ABOUT = [
+  {
+    emoji: "🏎️",
+    title: "Arcade Assassin",
+    text: "Gokarting? Nailed it. Bowling? Strike! Laser tag? I am the target your team fears. Whether it’s arcade games or burning rubber on the track, I’m here for the thrill, the competition, and the bragging rights. Bring your A-game—or prepare to lose spectacularly.",
+  },
+  {
+    emoji: "👨‍👩‍👧‍👦",
+    title: "Family Man (Or Wedding Guest Pro)",
+    text: "Fun fact: I’ve attended my cousin sisters’ weddings four years in a row—and counting. At this point, I’m either the family’s unofficial wedding consultant or just really good at finding excuses to eat unlimited shaadi ka khaana. Either way, the streak continues!",
+  },
+  {
+    emoji: "🌍",
+    title: "Wanderlust on Wheels",
+    text: "Bangalore’s traffic trained me well—so I took my skills on the road! From biking through Coorg’s misty hills to beach-hopping in Goa, I’ve been busy chasing sunrises, good food, and bad road conditions. Next stop? Probably somewhere with great views and questionable WiFi.",
+  },
+  {
+    emoji: "🏆",
+    title: "Fest Slayer",
+    text: "Overachiever? Nah. Competitive beast? Absolutely. I led my college to 11 overall IT fest victories, setting a personal record of never losing a single event I entered. Some collect trophies, I collect W’s. It’s not about the winning... except when it totally is.",
+  },
+  {
+    emoji: "🍽️",
+    title: "Fine Dining & Food Comas",
+    text: "If eating were a sport, I’d have an Olympic gold. A foodie with an elite Zomato curation, I know exactly where to take you for the best biryani, sushi, or that fancy “Instagrammable” dessert you’ve been craving. Bonus: I always order just enough to share (but not enough to give away too much).",
+  },
+];
+
 export const EXPERIENCES = [
   {
     year: "Jan 2024 - Present",
     role: "Associate Software Engineer",
     company: "Sysfore Technologies",
     description: `Develop web, mobile, and responsive applications using Microsoft Power Platform, including Canvas and Model-Driven Apps. Automate workflows with Power Automate, create Power BI reports, and integrate AI with AI Builder and Copilots. Implement custom logic using JavaScript/C#, design UI/UX in Figma, gather requirements, create BRDs, and manage project timelines effectively.`,
-    technologies: ["PowerApps", "Power Automate", "Figma", "Javascript","C# Plugins"],
+    technologies: ["PowerApps", "Power Automate", "Figma", "Javascript", "C# Plugins"],
   },
   {
     year: "Jul 2023 - Dec 2023",
@@ -64,7 +92,7 @@ export const PROJECTS = [
   {
     title: "POS System",
     image: POS,
-    description: 
+    description:
       "A robust POS (Point of Sale) system for a café, featuring order management, inventory tracking, and sales reporting.",
     technologies: ["React", "Node.js", "MongoDB", "Express.js", "MERN"]
   },

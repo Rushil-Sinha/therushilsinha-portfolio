@@ -11,19 +11,19 @@ const icons = [
     { icon: <RiReactjsLine className="text-4xl text-white-500" />, position: { x: -120, y: -60 } },
     { icon: <IoLogoFigma className="text-4xl text-white-500" />, position: { x: 120, y: -60 } },
     { icon: <SiMysql className="text-4xl text-white-500" />, position: { x: -120, y: 60 } },
-    { icon: <SiSelenium className="text-5xl text-white-500" style={{ clipPath: "circle(45%)"}}/>, position: { x: 120, y: 60 } },
+    { icon: <SiSelenium className="text-5xl text-white-500" style={{ clipPath: "circle(45%)" }} />, position: { x: 120, y: 60 } },
     { icon: <FaJava className="text-4xl text-white-500" />, position: { x: 0, y: 120 } },
     { icon: <RiNodejsLine className="text-4xl text-white-500" />, position: { x: 0, y: -120 } },
 ];
 const Technologies = () => {
     // Generate star positions once using useMemo
-    const stars = useMemo(() => 
+    const stars = useMemo(() =>
         [...Array(100)].map((_, index) => ({
             id: index,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
             opacity: Math.random() * 0.8 + 0.2,
-        })), 
+        })),
         []
     );
     return (
@@ -41,37 +41,44 @@ const Technologies = () => {
                         }}
                     />
                 ))}
-            </div> 
+            </div>
             <motion.h1
                 initial={{ opacity: 0, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2 }}
-                className="mb-20 relative text-[6vw] font-bold uppercase tracking-widest text-transparent"
+                className="relative mb-20 text-[clamp(4vw,6vw,8vw)] font-bold uppercase tracking-widest text-transparent text-center md:text-left"
                 style={{
-                    WebkitTextStroke: "2px rgba(255, 255, 255, 0.4)",
-                    color: "transparent",
+                    WebkitTextStroke: "2px rgba(255, 255, 255, 0.3)",
+                    letterSpacing: "max(5px, 2vw)",
                     opacity: 0.5,
-                    letterSpacing: "30px",
-                    zIndex: 1, // Lower layer
+                    zIndex: 1,
                 }}
             >
                 Technologies
                 <motion.span
-                    whileInView={{ opacity: 1, y: 0 }}
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 2, delay: 1 }}
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white lowercase italic font-bold text-[2vw] mix-blend-difference"
+                    animate={{
+                        opacity: [1, 0.5, 0.2, 1, 0.8, 1, 0.3, 1], // Flickering effect
+                    }}
+                    transition={{
+                        duration: 2,
+                        repeat: Infinity, // Continuous flicker
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                        times: [0, 0.2, 0.4, 0.6, 0.7, 0.85, 0.9, 1], // Random flicker timing
+                    }}
+                    className="absolute right-0 top-full mt-2 text-white lowercase italic font-bold text-[clamp(1.5vw,2vw,3vw)] text-right"
                     style={{
-                        color: "white",
-                        textShadow: "0px 0px 25px rgba(255, 255, 255, 1), 0px 0px 50px rgba(255, 255, 255, 1)",
-                        letterSpacing: "5px",
-                        zIndex: 2, // Higher layer
+                        textShadow: "0px 0px 15px rgba(255, 255, 255, 0.8), 0px 0px 30px rgba(255, 255, 255, 1), 0px 0px 50px rgba(255, 255, 255, 1)",
+                        letterSpacing: "max(2px, 0.5vw)",
+                        filter: "blur(0.5px)",
+                        zIndex: 2,
                     }}
                 >
-                    what i work on
+                    what i work on..
                 </motion.span>
             </motion.h1>
+
 
 
             <div className="relative w-72 h-72 flex items-center justify-center">

@@ -90,12 +90,18 @@ const Carousel = () => {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen border-b border-neutral-900">
             <motion.h1
+                initial={{ opacity: 0, y: 0 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                initial={{ opacity: 0, y: -100 }}
-                transition={{ duration: 1.5 }}
-                className="mb-5 text-center text-4xl text-white"
+                transition={{ duration: 2 }}
+                className="relative mb-5 text-[clamp(4vw,6vw,8vw)] font-bold uppercase tracking-widest text-transparent text-center md:text-left"
+                style={{
+                    WebkitTextStroke: "2px rgba(255, 255, 255, 0.3)",
+                    letterSpacing: "max(5px, 2vw)",
+                    opacity: 0.5,
+                    zIndex: 1,
+                }}
             >
-                About <span className="text-gray-300">Me</span>
+                About Me
             </motion.h1>
 
             <div className="relative flex items-center justify-center w-full max-w-4xl h-96">

@@ -1,35 +1,24 @@
-import { CONTACT } from "../constants";
+"use client";
+import React from "react";
 import { motion } from "framer-motion";
+import { LampContainer } from "./ui/lamp";
 
-const Contact = () => {
+export default function Contact() {
     return (
-        <div className="border-b border-neutral-900 pb-20">
-            <motion.h1 
+
+        <motion.h1
+            initial={{ opacity: 0.5, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
-            initial={{
-                opacity: 0, y: -100
+            transition={{
+                delay: 0.3,
+                duration: 0.8,
+                ease: "easeInOut",
             }}
-            transition={{ duration: 0.5 }} className="my-10 text-center text-4xl">Let's Connect!</motion.h1> 
-            <div className="text-center tracking-tighter">
-                <motion.p 
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{
-                    opacity: 0, x: -100
-                }}
-                transition={{ duration: 1 }}
-                className="my-4">
-                    {CONTACT.address}</motion.p> 
-                    <motion.p 
-                whileInView={{ opacity: 1, x: 0 }}
-                initial={{
-                    opacity: 0, x: 100
-                }}
-                transition={{ duration: 1 }} className="my-4"> {CONTACT.phoneNo}</motion.p>
-                <a href="#" className="border-b">
-                    {CONTACT.email}
-                </a>
-            </div>
-        </div >
+            className="mt-8 bg-gradient-to-b from-[#B0B0B0] to-[#4A4A4A] py-4 bg-clip-text text-center text-5xl font-medium tracking-tight text-transparent md:text-7xl"
+        >
+            Let's build<br /> something together.
+        </motion.h1>
+
+
     );
-};
-export default Contact;
+}

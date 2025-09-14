@@ -21,6 +21,13 @@ const Experience = () => {
                             transition={{ duration: 1 }} className="w-full lg:w-1/4">
                             <p className="mb-2 text-sm text-neutral-400">{experience.year}</p>
                         </motion.div>
+                        {/* Glowing Dot */}
+                        <motion.div
+                            className="absolute w-2 h-2 bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.8)]"
+                            animate={{ opacity: [0.5, 1, 0.5] }}
+                            transition={{ repeat: Infinity, duration: 1.5 }}
+                        />
+
                         <motion.div
                             whileInView={{ opacity: 1, x: 0 }}
                             initial={{
@@ -40,10 +47,10 @@ const Experience = () => {
                                     {tech}
                                 </ span>
                             ))}
-                    </motion.div>
+                        </motion.div>
                     </div>
                 ))}
-        </div>
+            </div>
         </div >
     );
 };

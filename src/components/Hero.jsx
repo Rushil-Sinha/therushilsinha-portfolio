@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { HERO_CONTENT } from "../constants";
 import profilePic from "../assets/profileRush.png";
-import { motion } from "framer-motion";
+import Hero1 from "../assets/Hero1.png";
+import Hero2 from "../assets/Hero2.png";
+import Hero3 from "../assets/Hero3.png";
+import { motion, AnimatePresence } from "framer-motion";
 import { BackgroundBeamsWithCollision } from "./ui/background-beams-with-collision";
 
 const container = (delay) => ({
@@ -14,6 +17,19 @@ const container = (delay) => ({
 })
 
 const Hero = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const images = [Hero1, Hero2, Hero3];
+
+    useEffect(() => {
+        // This sets up a timer that cycles through the images indefinitely.
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex =>
+                (prevIndex + 1) % images.length
+            );
+        }, 4000); // 4 seconds: 2s for the image to be visible + 2s for the transition
+
+        return () => clearInterval(interval); // Cleans up the timer
+    }, []);
     return (
         <div className="relative border-b border-neutral-900 pb-4 lg:mb-20 overflow-hidden">
             {/* Background beams positioned behind everything */}
@@ -24,18 +40,26 @@ const Hero = () => {
             <div className="flex flex-wrap relative z-20">
                 <div className="w-full lg:w-1/2">
                     <div className="flex flex-col items-center lg:items-start">
-                        <motion.h1
-                            variants={container(0)}
-                            initial="hidden"
-                            animate="visible"
-                            className="pb-16 text-6xl font-thin tracking-tight lg:mt-16 lg:text-8xl">
-                            Rushil Sinha
-                        </motion.h1>
-                        <motion.span
-                            variants={container(0.5)}
-                            initial="hidden"
-                            animate="visible"
-                            className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent">
+                       {/* This container is now 250% larger and holds the looping animation. */}
+                       <div className="relative pb-16 lg:mt-16 w-full h-64 lg:h-80 flex items-center justify-center lg:justify-start lg:-ml-12">
+    <AnimatePresence>
+        <motion.img
+            key={currentIndex}
+            src={images[currentIndex]}
+            alt="Rushil Sinha Animated"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2, ease: [0.42, 0, 0.58, 1] }}
+            className="w-auto h-full absolute" 
+        />
+    </AnimatePresence>
+</div>
+<motion.span
+    variants={container(0.5)}
+    initial="hidden"
+    animate="visible"
+    className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent lg:-mt-20">
                             Full Stack Developer
                         </motion.span>
                         <motion.p
